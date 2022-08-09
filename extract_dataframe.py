@@ -121,12 +121,13 @@ class TweetDfExtractor:
             else:
                 hastags_texts = [name['text'] for name in text]
                 hashtags.append(' '.join(map(str, hastags_texts)))    
-                 
+
         return  hashtags     
 
     def find_mentions(self)->list:
-        mentions = 
+        mentions =  [tweet["entities"]["user_mentions"] for tweet in self.tweets_list]
 
+        return mentions
 
     def find_location(self)->list:
         try:
