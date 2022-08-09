@@ -64,14 +64,21 @@ class TweetDfExtractor:
         return created_at
 
     def find_source(self)->list:
-        source = 
+        source = [tweet["source"] for tweet in self.tweets_list]
 
         return source
 
     def find_screen_name(self)->list:
-        source = [tweet["source"] for tweet in self.tweets_list]
+        screen_name = [] 
+        entities_list = [tweet["entities"]["user_mentions"] for tweet in self.tweets_list]
 
-        return source
+        for i in entities_list:
+            try:
+                screen_name.append(i[0]["screen_name"])
+            except  IndexError:  
+                screen_name.append(None)  
+
+        return screen_name      
 
     def find_followers_count(self)->list:
         followers_count = 
