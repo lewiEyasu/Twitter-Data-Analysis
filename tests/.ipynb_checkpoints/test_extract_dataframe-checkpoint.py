@@ -11,7 +11,7 @@ from extract_dataframe import TweetDfExtractor
 # we will need about 5 tweet samples. 
 # Create a sample not more than 10 tweets and place it in a json file.
 # Provide the path to the samples tweets file you created below
-sampletweetsjsonfile = "./Data/sampletweets.json"   #put here the path to where you placed the file e.g. ./sampletweets.json. 
+sampletweetsjsonfile = ""   #put here the path to where you placed the file e.g. ./sampletweets.json. 
 _, tweet_list = read_json(sampletweetsjsonfile)
 
 columns = [
@@ -57,11 +57,7 @@ class TestTweetDfExtractor(unittest.TestCase):
         )
 
     def test_find_full_text(self):
-        text = ["RT @i_ameztoy: Extra random image (I):\n\nLets focus in one very specific zone of the western coast -&gt; Longjing District, Taichung #City, #Ta…",
-                "China even cut off communication, they don't anwer phonecalls from the US. But here clown @ZelenskyyUa enters the stage to ask #XiJinping to change Putin's mind.",
-                "Putin to #XiJinping : I told you my friend, Taiwan will be a vassal state, including nukes, much like the Ukrainian model. I warned you... But it took Pelosi to open China's eyes.",
-                "RT @ChinaUncensored: I’m sorry, I thought Taiwan was an independent country because it had its own government, currency, military, travel d…",
-                "RT @benedictrogers: We must not let this happen.\n\nWe must be ready.\n\nWe must defend #Taiwan\n\nhttps://t.co/z4Rv925jhI"]
+        text = <provide a list of the first five full texts>
 
         self.assertEqual(self.df.find_full_text(), text)
 
