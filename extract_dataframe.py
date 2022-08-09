@@ -60,7 +60,7 @@ class TweetDfExtractor:
 
     def find_created_time(self)->list:
         created_at = [tweet["created_at"] for tweet in self.tweets_list]
-         
+
         return created_at
 
     def find_source(self)->list:
@@ -69,7 +69,9 @@ class TweetDfExtractor:
         return source
 
     def find_screen_name(self)->list:
-        screen_name = 
+        source = [tweet["source"] for tweet in self.tweets_list]
+
+        return source
 
     def find_followers_count(self)->list:
         followers_count = 
