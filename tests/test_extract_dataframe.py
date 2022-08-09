@@ -3,6 +3,7 @@ import pandas as pd
 import sys, os
 
 sys.path.append(os.path.abspath(os.path.join("../..")))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from extract_dataframe import read_json
 from extract_dataframe import TweetDfExtractor
@@ -69,15 +70,15 @@ class TestTweetDfExtractor(unittest.TestCase):
         self.assertEqual(
             self.df.find_sentiments(self.df.find_full_text()),
             (
-                [0.190625, 0.0, 0.35, 0.55625, 0.5],
-                [-0.125, 0.0, 0.1, -6.938893903907228e-18,  0.2,]
+                [-0.125, 0.0, 0.1, -6.938893903907228e-18,  0.2],
+                [0.190625, 0.0, 0.35, 0.55625, 0.5]
 
             ),
         )
 
 
     def test_find_screen_name(self):
-        name = ["i_ameztoy", "ZelenskyyUa", "nan", "ChinaUncensored", "benedictrogers"]
+        name = ["i_ameztoy", "ZelenskyyUa", None, "ChinaUncensored", "benedictrogers"]
         self.assertEqual(self.df.find_screen_name(), name)
 
     def test_find_followers_count(self):
@@ -89,7 +90,7 @@ class TestTweetDfExtractor(unittest.TestCase):
         self.assertEqual(self.df.find_friends_count(), friends_count)
 
     def test_find_is_sensitive(self):
-        self.assertEqual(self.df.is_sensitive(), [False,'nan','nan', False, False])
+        self.assertEqual(self.df.is_sensitive(), [False,None,None, False, False])
 
 
     # def test_find_hashtags(self):
