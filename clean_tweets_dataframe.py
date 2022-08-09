@@ -36,23 +36,19 @@ class Clean_Tweets:
         
         return df
         
-        
-        
-        df = df[df['created_at'] >= '2020-12-31' ]
-        
-        return df
-    
+
+
     def convert_to_numbers(self, df:pd.DataFrame)->pd.DataFrame:
         """
         convert columns like polarity, subjectivity, retweet_count
         favorite_count etc to numbers
         """
-        df['polarity'] = pd.----
-        
-        ----
-        ----
+        numbers_columns = ["polarity", "subjectivity", "retweet_count", "favorite_count", "followers_count", "friends_count" ]
+        for col in  numbers_columns :
+            df[col] = pd.to_numeric(df[col])
         
         return df
+        
     
     def remove_non_english_tweets(self, df:pd.DataFrame)->pd.DataFrame:
         """
